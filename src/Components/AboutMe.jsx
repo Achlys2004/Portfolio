@@ -20,7 +20,7 @@ export const AboutMe = () => {
             </h3>
             <p className="text-muted-foreground">
               Although I have Zero Experience as a FTE, I did do a 2 month
-              Intersnship where me and my team is building a tool that can make
+              Internship where me and my team is building a tool that can make
               work flow(messaging) more accessible and in one place while giving
               you a summary of your emails and messages.
             </p>
