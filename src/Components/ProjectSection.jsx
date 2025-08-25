@@ -18,7 +18,7 @@ const projects = [
       "Integrated Lucide React icons for clean, scalable iconography",
     ],
     type: "Personal",
-    image: "/projects/portfolio.png",
+    image: "/ProjectPics/Project_Portfolio_Img.png",
     tags: ["react", "vite", "tailwind-css", "javascript", "responsive-design"],
     gitUrl: "https://github.com/Achlys2004/Portfolio",
   },
