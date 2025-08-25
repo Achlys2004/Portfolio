@@ -207,10 +207,10 @@ export const ProjectSection = () => {
               {project.gitUrl && (
                 <button
                   onClick={(event) => handleGitHubClick(project.gitUrl, event)}
-                  className="absolute bottom-4 left-4 p-2 bg-background/80 hover:bg-background rounded-full transition-all duration-300 hover:scale-110 backdrop-blur-sm border border-border/30 z-10"
+                  className="absolute bottom-4 left-2 p-2 bg-background/80 hover:bg-background rounded-full transition-all duration-300 hover:scale-110 backdrop-blur-sm border border-border/30 z-10"
                   aria-label="View on GitHub"
                 >
-                  <Github className="h-5 w-5 text-foreground" />
+                  <Github className="h-4 w-4 text-foreground" />
                 </button>
               )}
             </div>
