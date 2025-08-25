@@ -21,6 +21,8 @@
   --animate-fade-in-delay-6: fade-in 0.7s ease-out 4s forwards;
 
   --animate-meteor: meteor 5s linear infinite;
+  --animate-meteor-light: meteor-light 5s linear infinite;
+  --animate-pulse-subtle-light: pulse-subtle 3s ease-in-out infinite;
 
   @keyframes float {
     0%,
@@ -66,6 +68,21 @@
       opacity: 0;
     }
   }
+
+  @keyframes meteor-light {
+    0% {
+      transform: rotate(215deg) translateX(0);
+      opacity: 1;
+    }
+    70% {
+      opacity: 1;
+    }
+    100% {
+      transform: rotate(215deg) translateX(-500px);
+      opacity: 0;
+    }
+  }
+
   @keyframes faulty-bulb {
     0%,
     15% {
@@ -264,6 +281,14 @@
 @utility meteor {
   @apply absolute bg-linear-to-r from-white via-white to-transparent rounded-full;
   box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
+}
+
+@utility animate-pulse-subtle-light {
+  animation: var(--animate-pulse-subtle-light);
+}
+
+@utility animate-meteor-light {
+  animation: var(--animate-meteor-light);
 }
 
 #root {
