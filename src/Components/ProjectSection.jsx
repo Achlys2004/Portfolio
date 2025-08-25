@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ProjectModal } from "./ProjectModal";
+import { ArrowRight, Github } from "lucide-react";
 
 // Type = ["Academic","Hackathon","Personal"]
 //
@@ -72,8 +73,7 @@ const projects = [
     type: "Academic",
     image: "/projects/task-distributor.png",
     tags: ["python", "kafka", "redis", "distributed-systems", "big-data"],
-    gitUrl:
-      "https://github.com/Achlys2004/Accuracy-exe/Task-Distributor-Big-Data-Project",
+    gitUrl: "https://github.com/Accuracy-exe/Task-Distributor-Big-Data-Project",
   },
   {
     id: 5,
@@ -119,6 +119,13 @@ export const ProjectSection = () => {
     setIsModalOpen(true);
   };
 
+  const handleGitHubClick = (gitUrl, event) => {
+    event.stopPropagation(); // Prevent modal from opening
+    if (gitUrl) {
+      window.open(gitUrl, "_blank", "noopener,noreferrer");
+    }
+  };
+
   const handleCloseModal = () => {
     setIsModalOpen(false);
     setSelectedProject(null);
@@ -127,9 +134,31 @@ export const ProjectSection = () => {
   return (
     <section id="projects" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-          Featured <span className="text-primary">Projects</span>
-        </h2>
+        <div className="relative mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center">
+            Featured <span className="text-primary">Projects</span>
+          </h2>
+          <a
+            className="cosmic-button w-fit items-center gap-2 text-sm absolute top-24 right-0 hidden md:flex"
+            target="_blank"
+            href="https://github.com/Achlys2004"
+          >
+            <Github size={16} />
+            View GitHub
+            <ArrowRight size={14} />
+          </a>
+          <div className="flex justify-center mt-4 md:hidden">
+            <a
+              className="cosmic-button w-fit flex items-center gap-2 text-sm"
+              target="_blank"
+              href="https://github.com/Achlys2004"
+            >
+              <Github size={16} />
+              View GitHub
+              <ArrowRight size={14} />
+            </a>
+          </div>
+        </div>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
           {" "}
           A selection of projects demonstrating my academic and practical work,
@@ -141,7 +170,7 @@ export const ProjectSection = () => {
           {projects.map((project) => (
             <div
               key={project.id}
-              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover flex flex-col cursor-pointer h-full"
+              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover flex flex-col cursor-pointer h-full relative"
               onClick={() => handleProjectClick(project)}
             >
               <div className="h-48 overflow-hidden">
@@ -173,12 +202,22 @@ export const ProjectSection = () => {
                   </p>
                 </div>
               </div>
+
+              {/* GitHub Icon - Bottom Left */}
+              {project.gitUrl && (
+                <button
+                  onClick={(event) => handleGitHubClick(project.gitUrl, event)}
+                  className="absolute bottom-4 left-4 p-2 bg-background/80 hover:bg-background rounded-full transition-all duration-300 hover:scale-110 backdrop-blur-sm border border-border/30 z-10"
+                  aria-label="View on GitHub"
+                >
+                  <Github className="h-5 w-5 text-foreground" />
+                </button>
+              )}
             </div>
           ))}
         </div>
       </div>
 
-      {/* Project Modal */}
       <ProjectModal
         project={selectedProject}
         isOpen={isModalOpen}

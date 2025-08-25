@@ -149,7 +149,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                 <div className="space-y-3">
                   <div className="flex items-center gap-3 text-sm text-muted-foreground">
                     <Calendar className="h-4 w-4 text-primary" />
-                    <span>Academic Project</span>
+                    <span>{project.type} Project</span>
                   </div>
                   <div className="flex items-center gap-3 text-sm text-muted-foreground">
                     <Code className="h-4 w-4 text-primary" />
