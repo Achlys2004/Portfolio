@@ -11,7 +11,7 @@ const projects = [
       "Modern, responsive portfolio website built with React and Vite, featuring dark/light themes and interactive components.",
     features: [
       "Developed responsive single-page application using React 19 and Vite",
-      "Implemented custom dark/light theme system with smooth transitions",
+      "Implemented custom Space theme system with smooth transitions",
       "Built interactive components including project modals and resume viewer",
       "Created animated star background and smooth scrolling navigation",
       "Designed with Tailwind CSS for consistent, modern styling",
@@ -21,7 +21,6 @@ const projects = [
     image: "/projects/portfolio.png",
     tags: ["react", "vite", "tailwind-css", "javascript", "responsive-design"],
     gitUrl: "https://github.com/Achlys2004/Portfolio",
-    liveUrl: "https://aathil-nishad.netlify.app",
   },
   {
     id: 2,

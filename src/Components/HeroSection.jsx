@@ -27,7 +27,7 @@ export const HeroSection = () => {
             it.
           </p>
           <p>
-            <span className="text-red-600 faulty-bulb text-2xl">
+            <span className="text-white-600 faulty-bulb text-2xl">
               {" "}
               Welcome to My Page
             </span>

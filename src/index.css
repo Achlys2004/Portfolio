@@ -71,7 +71,7 @@
     }
     10% {
       opacity: 0.3;
-      text-shadow: 0 0 2px #dc2626;
+      text-shadow: 0 0 2px #ffffff;
       transform: scale(1.02);
     }
     20%,
@@ -81,17 +81,17 @@
     }
     30% {
       opacity: 0.4;
-      text-shadow: 0 0 3px #dc2626;
+      text-shadow: 0 0 3px #ffffff;
     }
     40% {
       opacity: 1;
-      text-shadow: 0 0 15px #dc2626, 0 0 25px #dc2626, 0 0 35px #dc2626;
+      text-shadow: 0 0 15px #ffffff, 0 0 25px #ffffff, 0 0 35px #ffffff;
       transform: scale(1.05);
     }
     100% {
       opacity: 1;
-      text-shadow: 0 0 20px #dc2626, 0 0 30px #dc2626, 0 0 40px #dc2626,
-        0 0 50px rgba(220, 38, 38, 0.8);
+      text-shadow: 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff,
+        0 0 50px rgba(255, 255, 255, 0.8);
       transform: scale(1.03);
     }
   }
