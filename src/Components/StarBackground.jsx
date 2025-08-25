@@ -10,10 +10,8 @@ export const StarBackground = () => {
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
-    // Check initial theme
     setIsDark(document.documentElement.classList.contains("dark"));
 
-    // Watch for theme changes
     const observer = new MutationObserver(() => {
       setIsDark(document.documentElement.classList.contains("dark"));
     });
