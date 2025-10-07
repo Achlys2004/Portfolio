@@ -3,7 +3,6 @@ import { Analytics } from "@vercel/analytics/react";
 import { Home } from "./Pages/Home";
 import { NotFound } from "./Pages/NotFound";
 
-
 function App() {
   return (
     <>

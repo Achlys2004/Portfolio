@@ -1,7 +1,48 @@
-import { X, Github, ExternalLink, Code, Star, Calendar } from "lucide-react";
+import {
+  X,
+  Github,
+  ExternalLink,
+  Code,
+  Star,
+  Calendar,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
+import { useEffect } from "react";
 
-export const ProjectModal = ({ project, isOpen, onClose }) => {
+export const ProjectModal = ({
+  project,
+  isOpen,
+  onClose,
+  onNavigate,
+  currentIndex,
+  totalProjects,
+}) => {
   if (!isOpen || !project) return null;
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      // Only handle keyboard events when modal is open
+      if (!isOpen) return;
+
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        onNavigate("prev");
+      } else if (event.key === "ArrowRight") {
+        event.preventDefault();
+        onNavigate("next");
+      } else if (event.key === "Escape") {
+        event.preventDefault();
+        onClose();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen, onNavigate, onClose]);
 
   const handleBackdropClick = (e) => {
     if (e.target === e.currentTarget) {
@@ -14,7 +55,31 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
       className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
       onClick={handleBackdropClick}
     >
+      {/* Navigation Arrows - Outside Modal */}
+      <button
+        onClick={() => onNavigate("prev")}
+        className="absolute left-8 top-1/2 -translate-y-1/2 z-10 p-3 bg-background/80 hover:bg-background rounded-full transition-all duration-300 hover:scale-110 backdrop-blur-sm border border-border/30"
+        aria-label="Previous project"
+      >
+        <ChevronLeft className="h-6 w-6 text-foreground" />
+      </button>
+
+      <button
+        onClick={() => onNavigate("next")}
+        className="absolute right-8 top-1/2 -translate-y-1/2 z-10 p-3 bg-background/80 hover:bg-background rounded-full transition-all duration-300 hover:scale-110 backdrop-blur-sm border border-border/30"
+        aria-label="Next project"
+      >
+        <ChevronRight className="h-6 w-6 text-foreground" />
+      </button>
+
       <div className="relative bg-card rounded-2xl shadow-2xl max-w-5xl w-full max-h-[95vh] overflow-hidden border border-border/50">
+        {/* Project Counter */}
+        <div className="absolute top-4 left-1/2 -translate-x-1/2 z-10 px-4 py-2 bg-background/80 backdrop-blur-sm rounded-full border border-border/30">
+          <span className="text-sm text-muted-foreground">
+            {currentIndex + 1} of {totalProjects}
+          </span>
+        </div>
+
         {/* Close Button - Floating */}
         <button
           onClick={onClose}
@@ -30,6 +95,9 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
             <img
               src={project.image}
               alt={project.title}
+              onError={(e) => {
+                e.target.src = "/ProjectPics/Fallback.PNG";
+              }}
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
@@ -66,7 +134,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                     Project Overview
                   </h2>
                 </div>
-                <p className="text-muted-foreground leading-relaxed text-lg">
+                <p className="text-muted-foreground leading-relaxed text-lg text-left">
                   {project.description}
                 </p>
               </div>
@@ -85,23 +153,33 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                   <ul className="list-disc pl-5 space-y-2 marker:text-primary text-muted-foreground text-left text-lg">
                     {Array.isArray(project.features) ? (
                       project.features.map((feature, index) => (
-                        <li key={index} className="leading-relaxed">
-                          {feature}
-                        </li>
+                        <li
+                          key={index}
+                          className="leading-relaxed"
+                          dangerouslySetInnerHTML={{ __html: feature }}
+                        />
                       ))
                     ) : typeof project.features === "string" ? (
                       project.features
                         .split(".")
                         .filter((feature) => feature.trim())
                         .map((feature, index) => (
-                          <li key={index} className="leading-relaxed">
-                            {feature.trim()}.
-                          </li>
+                          <li
+                            key={index}
+                            className="leading-relaxed"
+                            dangerouslySetInnerHTML={{
+                              __html:
+                                feature.trim() + (feature.trim() ? "." : ""),
+                            }}
+                          />
                         ))
                     ) : (
-                      <li className="leading-relaxed">
-                        {String(project.features)}
-                      </li>
+                      <li
+                        className="leading-relaxed"
+                        dangerouslySetInnerHTML={{
+                          __html: String(project.features),
+                        }}
+                      />
                     )}
                   </ul>
                 </div>

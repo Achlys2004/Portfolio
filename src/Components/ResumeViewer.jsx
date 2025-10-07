@@ -5,13 +5,13 @@ import { cn } from "../lib/utils";
 const resumeFiles = [
   {
     name: "Resume with Photo",
-    filename: "Aathil Nishad Resume_latest_with pic.pdf",
-    path: "/Files/Aathil Nishad Resume_latest_with pic.pdf",
+    filename: "Aathil_Nishad_Resume_standard_with_image.pdf",
+    path: "/Files/Aathil_Nishad_Resume_standard_with_image.pdf",
   },
   {
-    name: "Resume without Photo",
-    filename: "Aathil Nishad Resume_latest.pdf",
-    path: "/Files/Aathil Nishad Resume_latest.pdf",
+    name: "Resume Standard",
+    filename: "Aathil Nishad Resume_with pic.pdf",
+    path: "/Files/Aathil Nishad Resume_with pic.pdf",
   },
 ];
 

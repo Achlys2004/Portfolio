@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { ProjectModal } from "./ProjectModal";
 import { ArrowRight, Github } from "lucide-react";
 
@@ -11,12 +11,12 @@ const projects = [
     description:
       "Modern, responsive portfolio website built with React and Vite, featuring dark/light themes and interactive components.",
     features: [
-      "Developed responsive single-page application using React 19 and Vite",
+      "Developed <strong style='color: white;'>responsive</strong> single-page application using <strong style='color: white;'>React</strong> 19 and <strong style='color: white;'>Vite</strong>",
       "Implemented custom Space theme system with smooth transitions",
       "Built interactive components including project modals and resume viewer",
       "Created animated star background and smooth scrolling navigation",
-      "Designed with Tailwind CSS for consistent, modern styling",
-      "Integrated Lucide React icons for clean, scalable iconography",
+      "Designed with <strong style='color: white;'>Tailwind CSS</strong> for consistent, modern styling",
+      "Integrated <strong style='color: white;'>Lucide React</strong> icons for clean, scalable iconography",
     ],
     type: "Personal",
     image: "/ProjectPics/Project_Portfolio_Img.png",
@@ -29,11 +29,11 @@ const projects = [
     description:
       "A comprehensive Kubernetes-like distributed system simulation built with Python.",
     features: [
-      "Engineered distributed system simulation managing master/worker nodes as Docker containers",
-      "Implemented real-time health monitoring via heartbeat mechanisms",
-      "Built pod deployment and tracking with container configurations and volume mounts",
-      "Designed automated node recovery and pod rescheduling on failure events",
-      "Created live Streamlit dashboard for cluster state visualization and pod-node mapping",
+      "Architected a <strong style='color: white;'>distributed cluster simulation</strong> using <strong style='color: white;'>Docker</strong> to containerize master/worker nodes, incorporating a heartbeat mechanism for <strong style='color: white;'>real-time monitoring</strong>",
+      "Engineered a <strong style='color: white;'>pod deployment</strong> and lifecycle management system, supporting custom configurations, persistent volume mounts, and efficient node-based tracking",
+      "Developed an interactive <strong style='color: white;'>Streamlit</strong> dashboard for <strong style='color: white;'>real-time cluster state visualization</strong> and implemented automated recovery protocols for failed nodes and pods to ensure high availability",
+      "Implemented comprehensive <strong style='color: white;'>node failure detection</strong> and pod rescheduling algorithms for system resilience",
+      "Built <strong style='color: white;'>container orchestration</strong> capabilities with advanced <strong style='color: white;'>networking</strong> and <strong style='color: white;'>resource management</strong> features",
     ],
     type: "Academic",
 
@@ -47,11 +47,12 @@ const projects = [
     description:
       "Advanced proctoring system combining behavioral analysis with real-time monitoring.",
     features: [
-      "Developed client-side application in Go for comprehensive user activity monitoring",
-      "Engineered AI module using Python and LSTM networks for real-time behavioral analysis",
-      "Implemented intelligent flagging system for suspicious activity detection",
-      "Built event-driven architecture for capturing and distributing client-side events",
-      "Integrated AI analysis and logging services for comprehensive monitoring",
+      "Engineered a lightweight <strong style='color: white;'>Go</strong> client to non-intrusively monitor user activity and system events within a simulated online examination environment",
+      "Designed a <strong style='color: white;'>Python</strong>-based AI module utilizing an <strong style='color: white;'>LSTM</strong> network for <strong style='color: white;'>real-time behavioral analysis</strong> to accurately identify and flag potential academic integrity violations",
+      "Architected an event-driven pipeline to efficiently stream client-side data to the AI analysis module and persistent logging services",
+      "Implemented intelligent flagging system for suspicious activity detection with configurable sensitivity thresholds",
+      "Built comprehensive <strong style='color: white;'>monitoring dashboard</strong> for <strong style='color: white;'>real-time examination oversight</strong> and incident reporting",
+      "Integrated <strong style='color: white;'>machine learning</strong> models for <strong style='color: white;'>pattern recognition</strong> and <strong style='color: white;'>anomaly detection</strong> in user behavior",
     ],
     type: "Hackathon",
     image: "/projects/non-invasive-proctoring.png",
@@ -64,11 +65,12 @@ const projects = [
     description:
       "Scalable distributed task scheduler leveraging modern big data technologies.",
     features: [
-      "Created distributed task scheduler using Kafka Brokers for efficient message passing",
-      "Implemented Redis backend system for robust state management",
-      "Designed dynamic scheduling algorithm based on real-time worker node availability",
-      "Built comprehensive failure-handling mechanisms with heartbeat monitoring",
-      "Enabled dynamic task handover to ensure seamless operation during failures",
+      "Developed a scalable <strong style='color: white;'>distributed task scheduler</strong> utilizing <strong style='color: white;'>Kafka</strong> for reliable <strong style='color: white;'>message brokering</strong> and <strong style='color: white;'>Redis</strong> for high-performance <strong style='color: white;'>state management</strong>",
+      "Implemented a dynamic <strong style='color: white;'>scheduling algorithm</strong> that allocates tasks based on real-time worker availability, optimizing for <strong style='color: white;'>load balancing</strong> and resource utilization",
+      "Engineered a robust <strong style='color: white;'>fault-tolerance mechanism</strong> featuring heartbeat-based failure detection and automated task reallocation to guarantee operational continuity",
+      "Built comprehensive task queue management with priority scheduling and deadline enforcement",
+      "Implemented distributed worker node coordination with automatic <strong style='color: white;'>load balancing</strong> and resource optimization",
+      "Created <strong style='color: white;'>real-time monitoring dashboard</strong> for task execution tracking and system performance metrics",
     ],
     type: "Academic",
     image: "/projects/task-distributor.png",
@@ -81,10 +83,10 @@ const projects = [
     description:
       "Object-oriented time-table generator for academic scheduling in Java.",
     features: [
-      "Implemented object-oriented design principles for scalable scheduling system",
-      "Developed sophisticated scheduling algorithms for conflict-free timetable generation",
+      "Implemented <strong style='color: white;'>object-oriented design</strong> principles for scalable scheduling system",
+      "Developed sophisticated <strong style='color: white;'>scheduling algorithms</strong> for conflict-free timetable generation",
       "Created automated generation system to minimize manual intervention",
-      "Built comprehensive constraint handling for academic scheduling requirements",
+      "Built comprehensive constraint handling for <strong style='color: white;'>academic scheduling</strong> requirements",
     ],
     type: "Academic",
     image: "/projects/time-table-scheduler.png",
@@ -97,27 +99,71 @@ const projects = [
     description:
       "Python-based database management and software engineering project.",
     features: [
-      "Developed comprehensive staff management and tracking system",
-      "Implemented dynamic menu management with CRUD operations",
-      "Built efficient order processing and tracking workflows",
-      "Integrated database operations with optimized query performance",
-      "Created both CLI and UI interfaces for enhanced user experience",
+      "Engineered a comprehensive, full-stack restaurant management system using <strong style='color: white;'>Python</strong> and <strong style='color: white;'>MySQL</strong> to automate and streamline core operational tasks",
+      "Designed and integrated core modules for table reservations, order processing, and automated billing to enhance service efficiency",
+      "Developed an intuitive <strong style='color: white;'>command-line interface (CLI)</strong> and a reporting module to generate operational insights, aiding in management decision-making",
+      "Implemented comprehensive staff management and tracking system with <strong style='color: white;'>role-based access control</strong>",
+      "Built dynamic menu management with full <strong style='color: white;'>CRUD</strong> operations and inventory tracking",
+      "Created efficient order processing workflows with <strong style='color: white;'>real-time status updates</strong> and payment integration",
+      "Developed both <strong style='color: white;'>CLI</strong> and <strong style='color: white;'>GUI interfaces</strong> for enhanced user experience and accessibility",
     ],
     type: "Academic",
     image: "/projects/restaurant-management.png",
     tags: ["python", "dbms", "software-engineering", "crud"],
     gitUrl: "https://github.com/Achlys2004/Restaurant-Management-System",
   },
+  {
+    id: 7,
+    title: "Smart Electric Grid Fault Detection System",
+    description:
+      "AI-powered fault detection and localization system for smart grids using LSTM Autoencoder and Reinforcement Learning within an Edge-to-Cloud architecture.",
+    features: [
+      "Developed <strong style='color: white;'>time-series anomaly detection</strong> model using <strong style='color: white;'>LSTM Autoencoder</strong> with <strong style='color: white;'>Optuna</strong>-based hyperparameter tuning",
+      "Implemented robust anomaly thresholding via <strong style='color: white;'>Median Absolute Deviation (MAD)</strong> and dynamic RL-based recalibration",
+      "Integrated <strong style='color: white;'>forecasting engine (STL + ARIMA)</strong> for trend and seasonal drift handling",
+      "Built a <strong style='color: white;'>feedback loop</strong> using <strong style='color: white;'>DQN (Deep Q-Network)</strong> <strong style='color: white;'>Reinforcement Learning</strong> to reduce false positives and negatives",
+      "Developed a personalized, user-friendly <strong style='color: white;'>dashboard UI</strong> for fault visualization and live system feedback",
+    ],
+    type: "Capstone",
+    image: "/ProjectPics/Project_GridFault_Img.png",
+    tags: [
+      "python",
+      "machine-learning",
+      "deep learning",
+      "lstm",
+      "forecasting",
+      "reinforcement-learning",
+      "time-series",
+    ],
+    // gitUrl:
+    //   "https://github.com/Achlys2004/Electric-Grid-Fault-Detection-System",
+  },
 ];
 
 export const ProjectSection = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
 
   const handleProjectClick = (project) => {
+    const index = projects.findIndex((p) => p.id === project.id);
+    setCurrentProjectIndex(index);
     setSelectedProject(project);
     setIsModalOpen(true);
   };
+
+  const handleNavigateProject = useCallback(
+    (direction) => {
+      const newIndex =
+        direction === "next"
+          ? (currentProjectIndex + 1) % projects.length
+          : (currentProjectIndex - 1 + projects.length) % projects.length;
+
+      setCurrentProjectIndex(newIndex);
+      setSelectedProject(projects[newIndex]);
+    },
+    [currentProjectIndex]
+  );
 
   const handleGitHubClick = (gitUrl, event) => {
     event.stopPropagation(); // Prevent modal from opening
@@ -126,10 +172,10 @@ export const ProjectSection = () => {
     }
   };
 
-  const handleCloseModal = () => {
+  const handleCloseModal = useCallback(() => {
     setIsModalOpen(false);
     setSelectedProject(null);
-  };
+  }, []);
 
   return (
     <section id="projects" className="py-24 px-4 relative">
@@ -178,6 +224,9 @@ export const ProjectSection = () => {
                 <img
                   src={project.image}
                   alt={project.title}
+                  onError={(e) => {
+                    e.target.src = "/ProjectPics/Fallback.PNG";
+                  }}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
@@ -222,6 +271,9 @@ export const ProjectSection = () => {
         project={selectedProject}
         isOpen={isModalOpen}
         onClose={handleCloseModal}
+        onNavigate={handleNavigateProject}
+        currentIndex={currentProjectIndex}
+        totalProjects={projects.length}
       />
     </section>
   );
